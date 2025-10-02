@@ -5,28 +5,41 @@
     <title>Welcome, Ladies, Gentlemen, and Other!</title>
     <link rel="icon" type="image/png" href="https://pixels.crd.co/assets/images/gallery24/37ffb81e.gif?v=29416114">
     <style>
+        * {
+            text-align: center;
+        }
+
+        .secret {
+            color: black;
+            text-decoration: none;
+        }
+
+
+        .header {
+            background-color: salmon;
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px 0; 
+            border-radius: 40px / 20px;
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            height: 150vh;
+            height: 150vh; 
             margin: 0;
             padding: 0;
             font-family: sans-serif;
             background-color: #f0f0f0;
         }
 
-        .header {
-            padding: 20px;
-            background-color: #add8e6;
-        }
-
-        center {
-            display: block;
-            margin-bottom: 20px;
-        }
-
+        /*
+        ==================================================
+        IMAGE ANIMATION CSS (Kept)
+        ==================================================
+        */
         #image {
             position: relative;
             padding: 40px;
@@ -34,7 +47,6 @@
         }
 
         #image img {
-            /* Image Size Adjustment: The max-width is set to 500px to make the image smaller. */
             max-width: 500px;
             height: auto;
             display: block;
@@ -52,11 +64,9 @@
 </head>
 <body>
     <div class="header">
-        <center>
-            <h1>
-                Welcome to Alice in Wonder<a class="secret" href="/end.html">end</a>!
-            </h1>
-        </center>
+        <h1>
+            Welcome to Alice in Wonder<a class="secret" href="/end.html">end</a>!
+        </h1>
     </div>
     <center>A wonderful and unique world of rabbits, hats, and cards! come and join the fun!</center>
 
@@ -79,7 +89,6 @@
             }
 
             checkVisibility();
-
             window.addEventListener('scroll', checkVisibility);
         });
     </script>
