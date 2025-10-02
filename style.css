@@ -4,4 +4,7 @@
 }
 
 .header {
+
+      background-color: lightgreen; /* Must be a square */
+      border-radius: 20%; /* Makes it a perfect circle */
 }
