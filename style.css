@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: starborn;
-  background-image: linear-gradient(to bottom, #000000, #162447); 
+  background-image: linear-gradient(to bottom, black, #162447); 
   color: white;
   margin: 0;
   padding: 0;
