@@ -7,12 +7,12 @@ html {
 }
 
 body {
-  font-family: starborn;
   background-image: linear-gradient(to bottom, black, #162447); 
   color: white;
   margin: 0;
   padding: 0;
   height: 150vh; 
+    font-family: 'Mrs Saint Delafield', cursive;
 }
 
 .secret {
@@ -21,7 +21,7 @@ body {
 }
 
 .header {
-  font-family: starborn;
+  font-family: 'Mrs Saint Delafield', cursive;
   width: 60%;
   margin: 40px auto 20px auto;
   padding: 15px 0;
