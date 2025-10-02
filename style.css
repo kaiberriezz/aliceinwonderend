@@ -2,3 +2,16 @@
   color: black; /* Or whatever color you need */
   text-decoration: none;
 }
+
+* {
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "/404.html"
+    }
+  ]
+}
