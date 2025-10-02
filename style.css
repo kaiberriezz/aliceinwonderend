@@ -4,7 +4,9 @@
 }
 
 .header {
-
-      background-color: lightgreen; /* Must be a square */
-      border-radius: 20%; /* Makes it a perfect circle */
+      background-color: salmon;
+      width: 200px;
+      height: 100px;
+      border-radius: 70px / 30px; /* Horizontal radius of 70px, vertical radius of 30px */
+    }
 }
