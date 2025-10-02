@@ -10,6 +10,7 @@
 .header {
       background-color: salmon;
   width:60%;
+    place-items: center; /* Centers both horizontally and vertically */
     justify-content: center; /* Centers horizontally */
       border-radius: 40px / 20px; /* Horizontal radius of 70px, vertical radius of 30px */
     }
