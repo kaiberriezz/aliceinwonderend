@@ -9,14 +9,14 @@ html {
 
 body {
   background-image: linear-gradient(to bottom, #000000, #162447); 
-  color: #f0f0f0;
+  color: white;
   margin: 0;
   padding: 0;
   height: 150vh; 
 }
 
 .secret {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -27,5 +27,5 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   background-color: salmon; 
-  color: #000000; 
+  color: #39729e; 
 }
