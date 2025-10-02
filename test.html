@@ -48,58 +48,51 @@
         }
         h1 {
             font-family:Mountains of Christmas;
-            text-align: center; /* Center the title */
+            text-align: center;
         }
         p {
             font-family: "Cedarville Cursive", cursive;
         }
 
-        /* NEW CSS FOR HIDDEN BUTTON */
-        .secret {
-            /* This is the existing secret link's style */
-            text-decoration: none;
-            color: inherit;
-            /* New: Make the text virtually invisible by setting its color to the background color (assuming a white background) */
-            /* In this case, we'll keep the link visible, but the cursor change will be the secret */
+        /* NEW CSS FOR BLENDING BUTTON */
+        .admin-button {
+            position: fixed; /* Keep it in the same spot even when scrolling */
+            bottom: 10px;    /* 10 pixels from the bottom */
+            right: 10px;     /* 10 pixels from the right */
+            
+            /* Minimalist Styling */
+            background: none;           /* No background color */
+            border: 1px solid #ccc;     /* Subtle grey border */
+            color: #777;                /* Light grey text color */
+            padding: 4px 8px;           /* Small padding */
+            font-size: 10px;            /* Very small font size */
+            font-family: Arial, sans-serif; /* Use a non-stylized font to look like a utility element */
+            text-transform: uppercase;  /* ALL CAPS to look like a small label */
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s; /* Gentle transition for interaction */
+            z-index: 100; /* Ensure it is on top of other content */
         }
 
-        .secret-container {
-            /* New: Use a div to contain the button area */
-            position: relative;
-            display: inline-block; /* Only as wide as its content (the h1) */
+        .admin-button:hover {
+            color: #000;
+            border-color: #000;
         }
-
-        .admin-trigger {
-            /* A virtually invisible click area placed over the 'secret' link/text */
-            position: absolute;
-            /* Adjust these values to perfectly cover the word 'end' or the whole secret link */
-            top: 0;
-            right: 0;
-            width: 15%; /* Adjust width to cover the 'end' part of the title */
-            height: 100%;
-            cursor: pointer; /* The key giveaway */
-            z-index: 10;
-            /* Optional: Add a subtle effect on hover to make it look like part of the design, if desired */
-            /* background-color: rgba(255, 0, 0, 0.1); /* Use this for debugging the click area */
-        }
-        
     </style>
 </head>
 <body>
     <main>
     <div class="header">
-        <div class="secret-container">
-            <h1>
-                Welcome to Alice in Wonder<a class="secret" href="/end.html">end</a>!
-            </h1>
-            <a class="admin-trigger" href="/admin-login.html" title="Admin Login" style="width: 15%;"></a>
-        </div>
+        <h1>
+            Welcome to Alice in Wonder<a class="secret" href="/end.html" style="text-decoration: none; color: inherit;">end</a>!
+        </h1>
     </div>
     <center><p>A wonderful and unique world of rabbits, hats, and cards! come and join the fun!</p></center>
 
     <div id="image">
         <img src="https://github.com/kaiberriezz/aliceinwonderend/blob/main/downtherabbithole.png?raw=true" alt="Alice falling down the rabbit hole"/>
     </div>
+ 
+    <a href="/admin-login.html" class="admin-button" title="Site Utility">Admin Only</a>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
