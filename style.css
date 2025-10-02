@@ -19,7 +19,6 @@ body {
   margin: 0;
   padding: 0;
   height: 150vh; 
-   font-family: "Mrs Sheppards", cursive;
 }
 
 .secret {
@@ -28,7 +27,6 @@ body {
 }
 
 .header {
-font-family: "Mrs Sheppards", cursive;
   width: 60%;
   margin: 40px auto 20px auto;
   padding: 15px 0;
@@ -36,7 +34,4 @@ font-family: "Mrs Sheppards", cursive;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   background-color: #23487d; 
   color: white; 
-}
-p {
-  font-family: "Mrs Sheppards", cursive;
 }
