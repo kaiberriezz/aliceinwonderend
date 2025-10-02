@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrix Keypad</title>
+    <style>
+        /* CSS Consolidated and Adjusted */
+        body {
+            /* Keep the background dark for the terminal aesthetic */
+            background: #000000;
+            user-select: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to the top */
+            min-height: 100vh;
+        }
+
+        header {
+            color: rgba(0, 10, 0, 1);
+            font: 25px Arial, sans-serif;
+            font-weight: bold;
+            margin-left: 200px;
+            margin-top: 50px;
+            text-shadow: 0 0 30px green;
+            transition-duration: 0.5s;
+            -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.3, transparent), to(white));
+        }
+
+        .headhover {
+            font: 25px Arial, sans-serif;
+            font-weight: bold;
+            text-shadow: 0 0 50px green;
+            transition-duration: 0.5s;
+        }
+
+        .matrixhover {
+            text-shadow: 0 0 20px green;
+            transition-duration: 0.2s;
+        }
+
+        .matrixrain {
+            float: left;
+            font: 20px Calibri Light, sans-serif;
+            font-weight: bold;
+            width: 0px;
+            margin-left: 20px;
+        }
+
+        p {
+            transition-duration: 2s;
+        }
+        
+        /* Container for the Keypad - Must be black */
+        #pwdcontainer {
+            background: #000000; /* Ensuring the keypad area is black */
+            margin-top: 50px;
+            width: 440px;
+            height: 550px;
+            float: left;
+            margin-left: 40px;
+            box-shadow: 0 0 30px green;
+            overflow: hidden;
+        }
+
+        #screen {
+            height: 100px;
+            width: 440px;
+        }
+
+        #display {
+            background: #000000; /* Ensure the display itself is black */
+            padding: 10px;
+            margin: 10px;
+            color: rgb(0, 120, 0);
+            border: 1px solid;
+            height: 65px;
+            font: 50px Calibri Light, sans-serif;
+            text-align: center;
+            line-height: 65px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: #000000; /* Ensure the list container is black */
+        }
+
+        .keypad {
+            color: rgb(0, 120, 0);
+            float: left;
+            border: 1px solid;
+            width: 108px;
+            height: 108px;
+            font: 25px Calibri Light, sans-serif;
+            text-align: center;
+            line-height: 108px;
+            transition: 0.5s;
+            background: #000000; /* Keypad buttons are black by default */
+        }
+
+        .keypad:hover {
+            box-shadow: 0 0 30px green;
+            position: relative;
+            background: rgb(0, 5, 0); /* Darker black on hover */
+        }
+
+        .keypad:active {
+            transition: all 0.1s;
+            transform: translatey(3px);
+        }
+
+        /* Matrix Rain Animations */
+        #line1 {
+            animation: rain1 5.5s linear infinite;
+        }
+        #line2 {
+            animation: rain2 3s linear infinite;
+        }
+        #line3 {
+            animation: rain3 2s linear infinite;
+        }
+        #line4 {
+            animation: rain4 3.5s linear infinite;
+        }
+        #line5 {
+            animation: rain5 4s linear infinite;
+        }
+        #line6 {
+            animation: rain6 5s linear infinite;
+        }
+        #line7 {
+            animation: rain7 3s linear infinite;
+        }
+        #line8 {
+            animation: rain8 2.5s linear infinite;
+        }
+
+        @keyframes rain1 {
+            0% {
+                transform: translatey(-600px);
+                color: rgba(0, 120, 0, 1);
+            }
+            80% {
+                color: rgba(0, 120, 0, 0);
+            }
+            100% {
+                transform: translatey(700px);
+                color: rgba(0, 120, 0, 0);
+            }
+        }
+
+        @keyframes rain2 {
+            0% {
+                transform: translatey(-600px);
+                color: rgba(0, 90, 0, 1);
+            }
+            80% {
+                color: rgba(0, 90, 0, 0);
+            }
+            100% {
+                transform: translatey(700px);
+                color: rgba(0, 90, 0, 0);
+            }
+        }
+
+        @keyframes rain3 {
+            0% {
+                transform: translatey(-600px);
+                color: rgba(0, 70, 0, 1);
+            }
+            80% {
+                color: rgba(0, 70, 0, 0);
+            }
+            100% {
+                transform: translatey(700px);
+                color: rgba(0, 70, 0, 0);
+            }
+        }
+
+        @keyframes rain4 {
+            0% {
+                transform: translatey(-600px);
+                color: rgba(0, 100, 0, 1);
+            }
+            80% {
+                color: rgba(0, 100, 0, 0);
+            }
+            100% {
+                transform: translatey(700px);
+                color: rgba(0, 100, 0, 0);
+            }
+        }
+
+        @keyframes rain5 {
+            0% {
+                transform: translatey(-600px);
+                color: rgba(0, 120, 0, 1);
+            }
+            80% {
+                color: rgba(0, 120, 0, 0);
+            }
+            100% {
+                transform: translatey(700px);
+                color: rgba(0, 120, 0, 0);
+            }
+        }
+
+
+        @keyframes rain6 {
+            0% {
+                transform: translatey(-600px);
+                color: rgba(0, 40, 0, 1);
+            }
+            80% {
+                color: rgba(0, 120, 0, 0);
+            }
+            100% {
+                transform: translatey(700px);
+                color: rgba(0, 40, 0, 0);
+            }
+        }
+
+
+        @keyframes rain7 {
+            0% {
+                transform: translatey(-600px);
+                color: rgba(0, 120, 0, 1);
+            }
+            80% {
+                color: rgba(0, 120, 0, 0);
+            }
+            100% {
+                transform: translatey(700px);
+                color: rgba(0, 120, 0, 0);
+            }
+        }
+
+
+        @keyframes rain8 {
+            0% {
+                transform: translatey(-600px);
+                color: rgba(0, 80, 0, 1);
+            }
+            80% {
+                color: rgba(0, 80, 0, 0);
+            }
+            100% {
+                transform: translatey(700px);
+                color: rgba(0, 80, 0, 0);
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <header id="float">
+        <h1>Matrix Keypad</h1>
+    </header>
+
+    <div id="matrix">
+        <p id="line1" class="matrixrain">5 0 6 6 9 8 7 2 0 1 2 3 5</p>
+        <p id="line2" class="matrixrain">0 5 9 2 8 3 5 6</p>
+        <p id="line3" class="matrixrain">9 8 7 4 5 3 6 2 1 8</p>
+        <p id="line4" class="matrixrain">8 5 6 3 2 1 9</p>
+        <p id="line5" class="matrixrain">7 4 2 1 8</p>
+        <p id="line6" class="matrixrain">5 6 8 4 3 6 8 4 1 2</p>
+        <p id="line7" class="matrixrain">1 5 3 8 9 7 1 5 3 5 8 9 6 2</p>
+        <p id="line8" class="matrixrain">6 5 8 4 5 6 3 5 4 5 8</p>
+    </div>
+
+    <div id="pwdcontainer">
+        <div id="screen"><div id="display">*****</div></div>
+        <nav>
+            <ul>
+                <li class="keypad" href="#">7</li>
+                <li class="keypad" href="#">8</li>
+                <li class="keypad" href="#">9</li>
+                <li class="keypad" href="#">Clear</li>
+                <li class="keypad" href="#">4</li>
+                <li class="keypad" href="#">5</li>
+                <li class="keypad" href="#">6</li>
+                <li class="keypad" href="#">⇦</li>
+                <li class="keypad" href="#">1</li>
+                <li class="keypad" href="#">2</li>
+                <li class="keypad" href="#">3</li>
+                <li class="keypad" href="#">+</li>
+                <li class="keypad" href="#">*</li>
+                <li class="keypad" href="#">0</li>
+                <li class="keypad" href="#">#</li>
+                <li class="keypad" href="#">Enter</li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Header hover effect
+            $('header').hover(function () {
+                $('header').toggleClass("headhover");
+            });
+            
+            // Matrix rain hover effect
+            $('#matrix').hover(function () {
+                $('p').toggleClass("matrixhover");
+            });
+
+            // Keypad functionality (simplified for static display)
+            $('.keypad').on('click', function(e) {
+                e.preventDefault();
+                const key = $(this).text();
+                const display = $('#display');
+                let currentText = display.text().replace(/\*/g, ''); // Get current text without asterisks
+                const maxLength = 5; // Matches the initial ***** display
+
+                switch (key) {
+                    case 'Clear':
+                        currentText = '';
+                        break;
+                    case '⇦': // Backspace
+                        currentText = currentText.slice(0, -1);
+                        break;
+                    case 'Enter':
+                        // This is where you'd put the password check logic
+                        alert('Code Submitted: ' + currentText);
+                        currentText = ''; // Clear for next attempt
+                        break;
+                    default:
+                        if (currentText.length < maxLength) {
+                            currentText += key;
+                        }
+                        break;
+                }
+
+                // Update the display with asterisks for remaining length
+                let displayValue = currentText.padEnd(maxLength, '*');
+                display.text(displayValue);
+            });
+        });
+
+        // The commented-out JavaScript section for generating random lines was excluded, 
+        // as the static lines were kept to ensure the Matrix effect works as designed.
+    </script>
+</body>
+</html>
