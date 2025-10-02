@@ -1,7 +1,7 @@
 * {
   text-align: center;
- font-family: starborn;
 }
+
 @font-face {
 font-family: starborn;
 src: url(https://dl.dropbox.com/s/5zgb9l9rpahgls7/Starborn.otf);
@@ -11,6 +11,7 @@ html {
 }
 
 body {
+  font-family: starborn;
   background-image: linear-gradient(to bottom, #000000, #162447); 
   color: white;
   margin: 0;
@@ -24,6 +25,7 @@ body {
 }
 
 .header {
+  font-family: starborn;
   width: 60%;
   margin: 40px auto 20px auto;
   padding: 15px 0;
