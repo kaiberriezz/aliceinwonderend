@@ -15,18 +15,17 @@
         }
 
         body {
-            /* Changed height to min-height to ensure the body stretches to at least 150vh */
-            min-height: 150vh; 
+            height: 150vh; 
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
             font-family: "Cedarville Cursive", cursive;
-            
-            /* Added position/display properties to correctly space the footer */
-            display: flex;
-            flex-direction: column;
         }
 
+        /*
+        ==================================================
+        IMAGE ANIMATION CSS (Kept)
+        ==================================================
+        */
         #image {
             position: relative;
             padding: 40px;
@@ -49,61 +48,52 @@
         }
         h1 {
             font-family:Mountains of Christmas;
-
+            text-align: center; /* Center the title */
         }
         p {
             font-family: "Cedarville Cursive", cursive;
         }
 
-        .site-footer {
-            /* New dark background color and lighter text color for contrast */
-            background-color: #333333; /* Darker gray background */
-            padding: 20px 0;
-            text-align: center;
-            
-            /* Pushes the footer to the bottom of the body/viewport */
-            margin-top: auto; 
-            
-            /* Existing spacing/rounding properties */
-            border-top: none; 
-            border-radius: 30px; 
-            margin: 20px 5% 0 5%;
-            width: 90%; 
-            box-sizing: border-box; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Increased shadow for darker background */
-            
-            /* Pop-up animation styles */
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
+        /* NEW CSS FOR HIDDEN BUTTON */
+        .secret {
+            /* This is the existing secret link's style */
+            text-decoration: none;
+            color: inherit;
+            /* New: Make the text virtually invisible by setting its color to the background color (assuming a white background) */
+            /* In this case, we'll keep the link visible, but the cursor change will be the secret */
         }
 
-        /* Class to make the footer visible */
-        .site-footer.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .secret-container {
+            /* New: Use a div to contain the button area */
+            position: relative;
+            display: inline-block; /* Only as wide as its content (the h1) */
         }
 
-        .site-footer .signature {
-            font-family: 'Mrs Sheppards', cursive;
-            font-size: 2.5em;
-            margin: 0 0 5px 0;
-            color: #f0f0f0; /* Light text for contrast on dark background */
+        .admin-trigger {
+            /* A virtually invisible click area placed over the 'secret' link/text */
+            position: absolute;
+            /* Adjust these values to perfectly cover the word 'end' or the whole secret link */
+            top: 0;
+            right: 0;
+            width: 15%; /* Adjust width to cover the 'end' part of the title */
+            height: 100%;
+            cursor: pointer; /* The key giveaway */
+            z-index: 10;
+            /* Optional: Add a subtle effect on hover to make it look like part of the design, if desired */
+            /* background-color: rgba(255, 0, 0, 0.1); /* Use this for debugging the click area */
         }
-
-        .site-footer .copyright {
-            font-family: 'Mountains of Christmas', cursive;
-            font-size: 1em;
-            color: #aaaaaa; /* Medium-light text for the copyright */
-            margin: 0;
-        }
+        
     </style>
 </head>
 <body>
+    <main>
     <div class="header">
-        <h1>
-            Welcome to Alice in Wonder<a class="secret" href="/end.html">end</a>!
-        </h1>
+        <div class="secret-container">
+            <h1>
+                Welcome to Alice in Wonder<a class="secret" href="/end.html">end</a>!
+            </h1>
+            <a class="admin-trigger" href="/admin-login.html" title="Admin Login" style="width: 15%;"></a>
+        </div>
     </div>
     <center><p>A wonderful and unique world of rabbits, hats, and cards! come and join the fun!</p></center>
 
@@ -111,32 +101,17 @@
         <img src="https://github.com/kaiberriezz/aliceinwonderend/blob/main/downtherabbithole.png?raw=true" alt="Alice falling down the rabbit hole"/>
     </div>
 
-    <footer class="site-footer" id="site-footer">
-        <p class="signature">With love,</p>
-        <p class="copyright">&copy; <span id="year"></span> Alice in Wonderend</p>
-    </footer>
-
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
         document.addEventListener('DOMContentLoaded', () => {
             const imageContainer = document.getElementById('image');
-            const footer = document.getElementById('site-footer');
             const triggerPoint = window.innerHeight * 0.8;
-            const footerTriggerPoint = window.innerHeight * 0.9;
 
             function checkVisibility() {
-                const imageBox = imageContainer.getBoundingClientRect();
-                const footerBox = footer.getBoundingClientRect();
+                const box = imageContainer.getBoundingClientRect();
 
-                // Logic for the image animation
-                if (imageBox.top < triggerPoint) {
+                if (box.top < triggerPoint) {
                     imageContainer.classList.add('visible');
-                }
-
-                // Logic for the footer pop-up
-                if (footerBox.top < footerTriggerPoint) {
-                    footer.classList.add('visible');
+                    window.removeEventListener('scroll', checkVisibility);
                 }
             }
 
@@ -144,5 +119,7 @@
             window.addEventListener('scroll', checkVisibility);
         });
     </script>
+<p style="color: transparent; font-family:Arial;">L2FsaWNlc19leWVfZGlhZ25vc2lzLmpwZWc=</p>
+        </main>
 </body>
 </html>
