@@ -15,11 +15,16 @@
         }
 
         body {
-            height: 150vh; 
+            /* Changed height to min-height to ensure the body stretches to at least 150vh */
+            min-height: 150vh; 
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
             font-family: "Cedarville Cursive", cursive;
+            
+            /* Added position/display properties to correctly space the footer */
+            display: flex;
+            flex-direction: column;
         }
 
         #image {
@@ -51,23 +56,45 @@
         }
 
         .site-footer {
-            background-color: #ffffff;
+            /* New dark background color and lighter text color for contrast */
+            background-color: #333333; /* Darker gray background */
             padding: 20px 0;
             text-align: center;
-            border-top: 2px solid #ccc;
+            
+            /* Pushes the footer to the bottom of the body/viewport */
+            margin-top: auto; 
+            
+            /* Existing spacing/rounding properties */
+            border-top: none; 
+            border-radius: 30px; 
+            margin: 20px 5% 0 5%;
+            width: 90%; 
+            box-sizing: border-box; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Increased shadow for darker background */
+            
+            /* Pop-up animation styles */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        /* Class to make the footer visible */
+        .site-footer.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .site-footer .signature {
             font-family: 'Mrs Sheppards', cursive;
             font-size: 2.5em;
             margin: 0 0 5px 0;
-            color: #333;
+            color: #f0f0f0; /* Light text for contrast on dark background */
         }
 
         .site-footer .copyright {
             font-family: 'Mountains of Christmas', cursive;
             font-size: 1em;
-            color: #555;
+            color: #aaaaaa; /* Medium-light text for the copyright */
             margin: 0;
         }
     </style>
@@ -84,7 +111,7 @@
         <img src="https://github.com/kaiberriezz/aliceinwonderend/blob/main/downtherabbithole.png?raw=true" alt="Alice falling down the rabbit hole"/>
     </div>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="site-footer">
         <p class="signature">With love,</p>
         <p class="copyright">&copy; <span id="year"></span> Alice in Wonderend</p>
     </footer>
@@ -94,14 +121,22 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const imageContainer = document.getElementById('image');
+            const footer = document.getElementById('site-footer');
             const triggerPoint = window.innerHeight * 0.8;
+            const footerTriggerPoint = window.innerHeight * 0.9;
 
             function checkVisibility() {
-                const box = imageContainer.getBoundingClientRect();
+                const imageBox = imageContainer.getBoundingClientRect();
+                const footerBox = footer.getBoundingClientRect();
 
-                if (box.top < triggerPoint) {
+                // Logic for the image animation
+                if (imageBox.top < triggerPoint) {
                     imageContainer.classList.add('visible');
-                    window.removeEventListener('scroll', checkVisibility);
+                }
+
+                // Logic for the footer pop-up
+                if (footerBox.top < footerTriggerPoint) {
+                    footer.classList.add('visible');
                 }
             }
 
