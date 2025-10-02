@@ -16,12 +16,13 @@
         }
 
         body {
+            /* Kept at 150vh to ensure scrollable space */
             height: 150vh; 
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
             font-family: "Cedarville Cursive", cursive;
-            /* Flex layout to push the footer to the bottom of the scrollable content */
+            /* Flex layout to push the footer to the bottom of the content */
             display: flex; 
             flex-direction: column;
         }
@@ -29,6 +30,8 @@
         /* New wrapper to allow content to take up space and push the footer down */
         .content-wrap {
             flex-grow: 1;
+            /* Key change: Add bottom padding so the footer doesn't stick to the edge */
+            padding-bottom: 50px; 
         }
 
         /*
@@ -66,20 +69,20 @@
         
         /*
         ==================================================
-        COMPACT SESH 3D FOOTER STYLES (Simplified & Full-Width)
+        COMPACT SESH 3D FOOTER STYLES (Finalized)
         ==================================================
         */
         
         .sesh-footer {
-            width: 100%; /* Full width */
-            /* Removed max-width */
-            height: 60px;
+            width: 100%; 
+            height: 50px; /* Reduced height for a more compact footer */
             background-color: #1a1a1a; 
-            border-top: 1px solid #333; /* Only need a top border now */
+            border-top: 1px solid #333; 
             color: #ddd; 
             
             position: relative; 
-            margin-top: 20px; /* Separates it from the content above */
+            margin-top: 20px; 
+            margin-bottom: 30px; /* Key change: Creates a gap between the footer and the bottom of the viewport/page */
             
             overflow: hidden;
             perspective: 1000px;
@@ -97,8 +100,6 @@
             transform-style: preserve-3d;
             position: relative;
         }
-
-        /* The ASCII section is now removed from the HTML/CSS for simplification */
         
         /* Links section (now full width) */
         .links-section {
@@ -106,7 +107,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 40px; /* Increased padding for wider layout */
+            padding: 0 40px; 
             transform-style: preserve-3d;
             transform: translateZ(5px);
             position: relative;
@@ -114,12 +115,12 @@
 
         .link-group {
             display: flex;
-            gap: 20px; /* Increased gap */
+            gap: 20px; 
         }
 
         .sesh-link {
             color: #777;
-            font-size: 10px; /* Slightly larger font */
+            font-size: 10px; 
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -155,12 +156,11 @@
 
         /* SESH title (Now acts as a simple branding/copy element) */
         .sesh-title {
-            position: relative; /* Changed to relative flow */
+            position: relative; 
             font-size: 14px;
             font-weight: bold;
             color: #555;
             letter-spacing: 6px;
-            /* Removed unnecessary absolute positioning and complex 3D transform */
             transform-style: preserve-3d; 
             transform: translateZ(5px); 
             text-shadow: 
@@ -172,7 +172,7 @@
         /* Ticker strip at bottom */
         .sesh-ticker {
             width: 100%;
-            height: 14px;
+            height: 10px; /* Reduced ticker height */
             background-color: #0d0d0d;
             overflow: hidden;
             position: relative;
@@ -186,7 +186,7 @@
             color: #555;
             font-size: 8px;
             letter-spacing: 1px;
-            padding: 3px 0;
+            padding: 1px 0; /* Adjusted padding */
         }
 
         /* Visual overlays (Kept for the glitch effect) */
@@ -209,7 +209,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
             opacity: 0.06;
             z-index: 4;
             pointer-events: none;
@@ -325,7 +325,6 @@
         // SESH Footer script for 3D mouse movement and particles
         document.addEventListener('DOMContentLoaded', function() {
             const footer = document.querySelector('.sesh-footer');
-            /* Removed skull references as that section is gone */
             const linksSection = document.querySelector('.links-section');
             
             // Random starting position for ticker
@@ -341,7 +340,6 @@
                 const xRotation = (yPos - 0.5) * 5; 
                 const yRotation = (xPos - 0.5) * 5; 
                 
-                // Apply rotation to the footer container
                 footer.style.transform = `rotateX(${-xRotation}deg) rotateY(${yRotation}deg)`;
                 
                 // Parallax effect for link section
@@ -351,9 +349,6 @@
             // Reset on mouse leave
             footer.addEventListener('mouseleave', function() {
                 footer.style.transform = ''; 
-                
-                // Removed skull reset logic
-                
                 linksSection.style.transform = 'translateZ(5px)';
             });
             
