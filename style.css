@@ -1,7 +1,10 @@
 * {
   text-align: center;
-  font-family: Arial, sans-serif;
+ font-family: starborn;
 }
+@font-face {
+font-family: starborn;
+src: url(https://dl.dropbox.com/s/5zgb9l9rpahgls7/Starborn.otf);
 
 html {
   scroll-behavior: smooth;
