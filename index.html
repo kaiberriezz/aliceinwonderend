@@ -1,18 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>  <link rel="stylesheet" href="style.css"> <title>Welcome, Ladies, Gentlemen, and Other!</title> <link rel="icon" type="image/png" href="https://pixels.crd.co/assets/images/gallery24/37ffb81e.gif?v=29416114"> </head>
-   <body>
-      <div class="header">
-     <center> <h1>
-         Welcome to Alice in Wonder<a class="secret" href="/end.html">end</a>!
-      </h1>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Welcome, Ladies, Gentlemen, and Other!</title>
+    <link rel="icon" type="image/png" href="https://pixels.crd.co/assets/images/gallery24/37ffb81e.gif?v=29416114">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            height: 150vh;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            padding: 20px;
+            background-color: #add8e6;
+        }
+
+        center {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        #image {
+            position: relative;
+            padding: 40px;
+            text-align: center;
+        }
+
+        #image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        #image.visible img {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <center>
+            <h1>
+                Welcome to Alice in Wonder<a class="secret" href="/end.html">end</a>!
+            </h1>
         </center>
-      </div>
-      <center>A wonderful and unique world of rabbits, hats, and cards! come and join the fun!</center>
-      <div id="image">
-         <br>
-         <br>
-         <img src="https://github.com/kaiberriezz/aliceinwonderend/blob/main/downtherabbithole.png?raw=true""/>
-      </div>
-        </body>
+    </div>
+    <center>A wonderful and unique world of rabbits, hats, and cards! come and join the fun!</center>
+
+    <div style="height: 400px; text-align: center; padding-top: 50px;">
+        <p>Scroll down to enter the rabbit hole...</p>
+    </div>
+
+    <div id="image">
+        <img src="https://github.com/kaiberriezz/aliceinwonderend/blob/main/downtherabbithole.png?raw=true" alt="Alice falling down the rabbit hole"/>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageContainer = document.getElementById('image');
+            const triggerPoint = window.innerHeight * 0.8;
+
+            function checkVisibility() {
+                const box = imageContainer.getBoundingClientRect();
+
+                if (box.top < triggerPoint) {
+                    imageContainer.classList.add('visible');
+                    window.removeEventListener('scroll', checkVisibility);
+                }
+            }
+
+            checkVisibility();
+
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
 </html>
