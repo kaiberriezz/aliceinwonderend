@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   height: 150vh; 
-    font-family: 'Mrs Saint Delafield', cursive;
+    font-family: 'Mrs Sheppards', cursive;
 }
 
 .secret {
@@ -21,7 +21,7 @@ body {
 }
 
 .header {
-  font-family: 'Mrs Saint Delafield', cursive;
+  font-family: 'Mrs Sheppards', cursive;
   width: 60%;
   margin: 40px auto 20px auto;
   padding: 15px 0;
@@ -30,4 +30,4 @@ body {
   background-color: #23487d; 
   color: white; 
 }
-p {  font-family: 'Mrs Saint Delafield', cursive;}
+p {  font-family: 'Mrs Sheppards', cursive;}
