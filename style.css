@@ -3,15 +3,13 @@
 }
 
 .secret {
-  color: black; /* Or whatever color you need */
+  color: black;
   text-decoration: none;
 }
 
 .header {
-      background-color: salmon;
-  width:60%;
-    place-items: center; /* Centers both horizontally and vertically */
-    justify-content: center; /* Centers horizontally */
-      border-radius: 40px / 20px; /* Horizontal radius of 70px, vertical radius of 30px */
-    }
+  background-color: salmon;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 40px / 20px;
 }
