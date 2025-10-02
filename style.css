@@ -1,5 +1,17 @@
 * {
   text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0b1a2b;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
 }
 
 .secret {
@@ -8,9 +20,11 @@
 }
 
 .header {
-  background-color: salmon;
   width: 60%;
-  margin: 0 auto;
-  padding: 10px 0;
-  border-radius: 25px;
+  margin: 40px auto 20px auto;
+  padding: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(to right, #1f4068, #162447);
+  color: #ffffff;
 }
