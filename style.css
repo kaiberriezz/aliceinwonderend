@@ -15,6 +15,10 @@ html {
 
 body {
   background-image: linear-gradient(to bottom, black, #162447); 
+   background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Optional: fixes the background image relative to the viewport */
+  background-position: center center; /* Centers the background image */
+  background-size: cover; /* Ensures the image covers the entire element */
   color: white;
   margin: 0;
   padding: 0;
