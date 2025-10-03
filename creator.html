@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <style>
+  #image {
+            position: relative;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+
+        #image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }</style>
  <script>
         document.addEventListener('DOMContentLoaded', () => {
             const imageContainer = document.getElementById('image');
