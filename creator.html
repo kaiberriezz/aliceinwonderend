@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageContainer = document.getElementById('image');
+            const triggerPoint = window.innerHeight * 0.8;
+
+            function checkVisibility() {
+                const box = imageContainer.getBoundingClientRect();
+
+                if (box.top < triggerPoint) {
+                    imageContainer.classList.add('visible');
+                    window.removeEventListener('scroll', checkVisibility);
+                }
+            }
+
+            checkVisibility();
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
 <link rel="stylesheet" href="/style.css">
  <title>The Creator!</title>
    <link rel="icon" type="image/png" href="https://pixels.crd.co/assets/images/gallery46/da13054d.gif?v=29416114">
